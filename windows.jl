@@ -1,4 +1,6 @@
-abstract Window end
+import Base.+
+
+abstract Window
 
 type time_window <: Window
 	start::AbstractFloat
