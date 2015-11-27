@@ -4,7 +4,7 @@
 
 module GazeDispersion
 
-export compute_dispersion, win
+export dispersion_within, dispersion_across, win
 
 # euclidean distance:
 # v, w - two x,y x time vectors:
@@ -31,5 +31,22 @@ function dispersion_within(et::Array{Float64,2}, win::sample_window)
 	end
 	return dispersion
 end
+
+
+# dispersion across viewings
+function dispersion_across(V::Array{Float64,2},
+	W::Array{Float64,2}, win::sample_window)
+
+	win_steps = window_steps(V, win)
+	dispersion = zeros(Float64, win_steps)
+	for s = 1:win_steps
+		v = get_data(V, win)
+		w = get_data(W, win)
+		dispersion[s] = all_euclidist(v, w)
+		win += 1
+	end
+	return dispersion
+end
+
 
 end
