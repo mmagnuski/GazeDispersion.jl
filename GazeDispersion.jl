@@ -7,7 +7,7 @@ module GazeDispersion
 export dispersion_within, dispersion_across, win
 
 # include
-include('windows.jl')
+include("windows.jl")
 
 # euclidean distance:
 # v, w - two x,y x time vectors:
