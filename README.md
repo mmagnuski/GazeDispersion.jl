@@ -15,5 +15,5 @@ gaze_dispersion = dispersion_within(et_data, window)
 
 # if you have data for first and second viewings you can
 # use dispersion_across:
-gaze_dispersion = dispersion_within(et_data1, et_data2, window)
+gaze_dispersion = dispersion_across(et_data1, et_data2, window)
 ```
