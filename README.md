@@ -1,5 +1,5 @@
 # GazeDispersion.jl
-computes gaze dispersion according to [needs citation]
+computes gaze dispersion according to `Christoforou, Christou-Champi, Constantinidou, Theodorou, 2015`
 
 ## Using GazeDispersion
 
