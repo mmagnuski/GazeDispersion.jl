@@ -20,12 +20,14 @@ end
 
 include('windows.jl')
 
-compute_dispersion(et::Array{Float64,2}, win::sample_window)
+# dispersion within viewings
+function dispersion_within(et::Array{Float64,2}, win::sample_window)
 	win_steps = window_steps(et, win)
 	dispersion = zeros(Float64, win_steps)
-	for w = 1:win_steps
+	for s = 1:win_steps
 		dat = get_data(et, win)
-		dispersion[w] = all_euclidist(dat, dat)
+		dispersion[s] = all_euclidist(dat, dat)
+		win += 1
 	end
 	return dispersion
 end
