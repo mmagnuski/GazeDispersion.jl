@@ -35,8 +35,8 @@ end
 function get_data(et::Array{Float64,2}, w::sample_window)
 	n_subj = round(Int, size(et, 2) / 2)
 	n_samples = size(et, 1)
-	return reshape(et[w.start:w.start+w.step-1, :],
-		[n_subj*n_samples, 2])
+	dat = et[w.start:w.start+w.width-1, :]
+	return [dat[:,1:2:end] dat[:,2:2:end]]
 end
 
 function window_steps(et::Array{Float64,2}, w::sample_window)
