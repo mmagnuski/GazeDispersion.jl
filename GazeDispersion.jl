@@ -6,6 +6,9 @@ module GazeDispersion
 
 export dispersion_within, dispersion_across, win
 
+# include
+include('windows.jl')
+
 # euclidean distance:
 # v, w - two x,y x time vectors:
 function all_euclidist(v::Array{Float64,2}, w::Array{Float64,2})
@@ -18,7 +21,6 @@ function all_euclidist(v::Array{Float64,2}, w::Array{Float64,2})
 	return res
 end
 
-include('windows.jl')
 
 # dispersion within viewings
 function dispersion_within(et::Array{Float64,2}, win::sample_window)
