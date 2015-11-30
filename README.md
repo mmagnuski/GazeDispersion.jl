@@ -1,6 +1,11 @@
 # GazeDispersion.jl
 computes gaze dispersion according to `Christoforou, Christou-Champi, Constantinidou, Theodorou, 2015`
 
+## Installation
+```julia
+Pkg.clone("https://github.com/mmagnuski/GazeDispersion.jl.git")
+```
+
 ## Using GazeDispersion
 
 ```julia
