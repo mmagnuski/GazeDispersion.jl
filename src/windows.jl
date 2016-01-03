@@ -15,9 +15,8 @@ type sample_window <: Window
 end
 
 function tosamples(w::time_window; sf::Union{AbstractFloat, Int}=1000)
-
-	return sample_window(round(Int, w.start * sf),
-		round(Int, w.width * sf), round(Int, w.step * sf))
+	params = round(Int, [w.start, w.width, w.step] * sf)
+	return sample_window(params...)
 end
 
 function +(w::Window, val::Integer)
