@@ -14,7 +14,7 @@ type sample_window <: Window
 	step::Int64
 end
 
-function tosamples(w::time_window; sf::Union(AbstractFloat, Int)=1000)
+function tosamples(w::time_window; sf::Union{AbstractFloat, Int}=1000)
 
 	return sample_window(round(Int, w.start * sf),
 		round(Int, w.width * sf), round(Int, w.step * sf))
@@ -26,7 +26,7 @@ function +(w::Window, val::Integer)
 end
 
 function win(width::AbstractFloat, step::AbstractFloat;
-	sf::Union(AbstractFloat, Int)=1000)
+	sf::Union{AbstractFloat, Int}=1000)
 
 	w = tosamples(time_window(0., width, step), sf)
 	w.start = 1
