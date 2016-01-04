@@ -27,7 +27,7 @@ end
 function win(width::AbstractFloat, step::AbstractFloat;
 	sf::Union{AbstractFloat, Int}=1000)
 
-	w = tosamples(time_window(0., width, step), sf)
+	w = tosamples(time_window(0., width, step), sf=sf)
 	w.start = 1
 	return w
 end
