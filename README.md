@@ -1,5 +1,5 @@
 # GazeDispersion.jl
-[![Build status](https://ci.appveyor.com/api/projects/status/i9mxv6ao6wm1ydm4?svg=true)](https://ci.appveyor.com/project/mmagnuski/gazedispersion-jl)  [![Build Status](https://travis-ci.org/mmagnuski/GazeDispersion.jl.svg?branch=master)](https://travis-ci.org/mmagnuski/GazeDispersion.jl)  
+[![Build status](https://ci.appveyor.com/api/projects/status/i9mxv6ao6wm1ydm4?svg=true)](https://ci.appveyor.com/project/mmagnuski/gazedispersion-jl)  [![Build Status](https://travis-ci.org/mmagnuski/GazeDispersion.jl.svg?branch=master)](https://travis-ci.org/mmagnuski/GazeDispersion.jl)  [![codecov.io](https://codecov.io/github/mmagnuski/GazeDispersion.jl/coverage.svg?branch=master)](https://codecov.io/github/mmagnuski/GazeDispersion.jl?branch=master)  
 computes gaze dispersion according to `Christoforou, Christou-Champi, Constantinidou, Theodorou, 2015`
 
 ## Installation
