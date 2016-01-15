@@ -17,3 +17,5 @@ dat = GazeDispersion.get_data(mat, w1)
 @test all(dat .== map(Float64, [1 2; 1 2; 3 4; 3 4]))
 
 @test GazeDispersion.window_steps(mat, w1) == 2
+
+@test all(dispersion_within(mat, win) .== [1.41421; 1.41421])
