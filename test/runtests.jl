@@ -18,4 +18,4 @@ dat = GazeDispersion.get_data(mat, w1)
 
 @test GazeDispersion.window_steps(mat, w1) == 2
 
-@test all(dispersion_within(mat, w1) .== [1.41421; 1.41421])
+@test_approx_eq dispersion_within(mat, w1) [1.4142135623730954; 1.4142135623730954]
