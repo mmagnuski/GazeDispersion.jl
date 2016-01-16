@@ -39,11 +39,11 @@ end
 
 
 # dispersion across viewings
-function dispersion_across(V::Array{Float64,2},
-	W::Array{Float64,2}, win::sample_window)
+function dispersion_across{T<:AbstractFloat}(V::Array{T,2},
+		W::Array{T,2}, win::sample_window)
 
 	win_steps = window_steps(V, win)
-	dispersion = zeros(Float64, win_steps)
+	dispersion = zeros(eltype(V), win_steps)
 	for s = 1:win_steps
 		v = get_data(V, win)
 		w = get_data(W, win)
