@@ -12,7 +12,8 @@ include("windows.jl")
 
 # euclidean distance:
 # v, w - two x,y x time vectors:
-function all_euclidist(v::Array{Float64,2}, w::Array{Float64,2})
+function all_euclidist{T<:AbstractFloat}(v::Array{T,2},
+		w::Array{T,2})
 	res = 0.
 	N = size(v, 1)
 	for i = 1:N, j = 1:N
@@ -24,9 +25,10 @@ end
 
 
 # dispersion within viewings
-function dispersion_within(et::Array{Float64,2}, win::sample_window)
+function dispersion_within{T<:AbstractFloat}(et::Array{T,2},
+		win::sample_window)
 	win_steps = window_steps(et, win)
-	dispersion = zeros(Float64, win_steps)
+	dispersion = zeros(eltype(et), win_steps)
 	for s = 1:win_steps
 		dat = get_data(et, win)
 		dispersion[s] = all_euclidist(dat, dat)

@@ -9,9 +9,9 @@ type time_window <: Window
 end
 
 type sample_window <: Window
-	start::Int64
-	width::Int64
-	step::Int64
+	start::Int
+	width::Int
+	step::Int
 end
 
 function tosamples(w::time_window; sf::Union{AbstractFloat, Int}=1000)
@@ -32,13 +32,15 @@ function win(width::AbstractFloat, step::AbstractFloat;
 	return w
 end
 
-function get_data(et::Array{Float64,2}, w::sample_window)
+function get_data{T<:AbstractFloat}(et::Array{T,2},
+		w::sample_window)
 	n_subj = round(Int, size(et, 2) / 2)
 	n_samples = size(et, 1)
 	dat = et[w.start:w.start+w.width-1, :]
 	return [dat[:,1:2:end][:] dat[:,2:2:end][:]]
 end
 
-function window_steps(et::Array{Float64,2}, w::sample_window)
+function window_steps{T<:AbstractFloat}(et::Array{T,2},
+		w::sample_window)
 	return round(Int, (size(et,1) - w.width) / w.step) + 1
 end
