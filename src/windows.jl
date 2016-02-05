@@ -52,6 +52,7 @@ function get_random_data{T<:AbstractFloat}(et::Array{T,2},
 		data[s*(w.width-1)+1, :] = et[start:start+w.width-1,
 			s*2-1:s*2]
 	end
+	return data
 end
 
 function window_steps{T<:AbstractFloat}(et::Array{T,2},
