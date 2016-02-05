@@ -40,6 +40,20 @@ function get_data{T<:AbstractFloat}(et::Array{T,2},
 	return [dat[:,1:2:end][:] dat[:,2:2:end][:]]
 end
 
+function get_random_data{T<:AbstractFloat}(et::Array{T,2},
+		w::sample_window)
+	n_subj = round(Int, size(et, 2) / 2)
+	n_samples = size(et, 1)
+	window_range = 1:w.step:n_samples
+	data = zeros(eltype(et), n_subj*w.width, 2)
+	window_start = rand(window_range, n_subj)
+
+	for (s, start) in enumerate(window_start)
+		data[s*(w.width-1)+1, :] = et[start:start+w.width-1,
+			s*2-1:s*2]
+	end
+end
+
 function window_steps{T<:AbstractFloat}(et::Array{T,2},
 		w::sample_window)
 	return floor(Int, (size(et,1) - w.width) / w.step) + 1
