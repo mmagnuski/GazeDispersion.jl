@@ -42,5 +42,5 @@ end
 
 function window_steps{T<:AbstractFloat}(et::Array{T,2},
 		w::sample_window)
-	return round(Int, (size(et,1) - w.width) / w.step) + 1
+	return floor(Int, (size(et,1) - w.width) / w.step) + 1
 end
